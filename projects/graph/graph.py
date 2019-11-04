@@ -76,12 +76,28 @@ class Graph:
                     stack.push(neighbor)
                 # add vertex to visited
                 visited.add(current_vertex)
+
+    def dft_recursive(self, starting_vertex, visited=set()):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
-        pass  # TODO
+        # if there is a vertex passed in
+        if starting_vertex:
+            # add the vertex to visited
+            visited.add(starting_vertex)
+            # print the vertex
+            print(starting_vertex)
+            # loop through the neighbors
+            for neighbor in self.vertices[starting_vertex]:
+                # check if the vertex has been visited
+                if neighbor not in visited:
+                    # call the dft_recursive  passing in the neighbor and visited
+                    self.dft_recursive(neighbor, visited)
+
+        return None
+
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
