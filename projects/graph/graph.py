@@ -77,12 +77,15 @@ class Graph:
                 # add vertex to visited
                 visited.add(current_vertex)
 
-    def dft_recursive(self, starting_vertex, visited=set()):
+    def dft_recursive(self, starting_vertex, visited=None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
+        if visited is None:
+            visited = set()
+
         # if there is a vertex passed in
         if starting_vertex:
             # add the vertex to visited
